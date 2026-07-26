@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PORDIGI-1 | SD Bali Public School</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#0d47a1,#42a5f5);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+
+width:420px;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+text-align:center;
+
+}
+
+.logo{
+
+font-size:70px;
+
+}
+
+h1{
+
+margin-top:10px;
+color:#1565C0;
+
+}
+
+h2{
+
+margin-top:5px;
+font-size:18px;
+color:#666;
+
+}
+
+.status{
+
+margin-top:30px;
+font-size:20px;
+font-weight:bold;
+
+}
+
+button{
+
+margin-top:30px;
+width:100%;
+padding:15px;
+font-size:18px;
+background:#1565C0;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#0d47a1;
+
+}
+
+button:disabled{
+
+background:gray;
+cursor:not-allowed;
+
+}
+
+.footer{
+
+margin-top:25px;
+font-size:13px;
+color:#888;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="logo">
+📚
+</div>
+
+<h1>PORDIGI-1</h1>
+
+<h2>SD Bali Public School</h2>
+
+<p class="status" id="status">
+Memeriksa jam akses...
+</p>
+
+<button id="btn">
+Masuk ke E-Learning
+</button>
+
+<div class="footer">
+
+Portal Digital Pembelajaran
+
+</div>
+
+</div>
+
+<script>
+
+const hour = Number(
+
+new Intl.DateTimeFormat('id-ID',{
+
+timeZone:'Asia/Makassar',
+
+hour:'numeric',
+
+hour12:false
+
+}).format(new Date())
+
+);
+
+const status=document.getElementById("status");
+const btn=document.getElementById("btn");
+
+if(hour>=8 && hour<22){
+
+status.innerHTML="🟢 Portal Dibuka";
+
+btn.onclick=function(){
+
+window.location.href="https://sites.google.com/view/pordigi-1-sd-bps/home";
+
+}
+
+}else{
+
+status.innerHTML="🔴 Portal Ditutup<br>Akses pukul 08.00 - 22.00 WITA";
+
+btn.disabled=true;
+
+}
+
+</script>
+
+</body>
+</html>
